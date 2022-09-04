@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 
 if ! [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
     echo "ZSH Doens't seem to be installed. Install that to continue"
@@ -13,6 +13,9 @@ sudo ln -sf ~/first_setup/Brewfile ~/Brewfile
 
 echo "Install Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "brew bundle"
 brew bundle
