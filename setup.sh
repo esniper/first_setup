@@ -19,3 +19,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "brew bundle"
 brew bundle
+
+echo "Generating SSH Keys"
+ssh-keygen -t rsa -f ~/.ssh/ssh_key -C contact@raoarjun.com -b 2048
+
+echo "Copying public key to clipboard. Add to github"
+cat ~/.ssh/ssh_key.pub | pbcopy
+read -s -k $'?Press any key to continue...\n'
